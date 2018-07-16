@@ -15,6 +15,12 @@ import javafx.stage.Stage;
 
 public class App extends Application {
 
+    /**
+     * Creates GUI
+     *
+     * @param primaryStage
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Circularo - Blockchain");
@@ -25,6 +31,11 @@ public class App extends Application {
         primaryStage.show();
     }
 
+    /**
+     * Assembles GUI
+     *
+     * @return Parent root value
+     */
     private Parent createRoot() {
         BorderPane bP = new BorderPane();
 
@@ -34,6 +45,12 @@ public class App extends Application {
         return bP;
     }
 
+    /**
+     * Creates top part of GUI
+     * Top part allows user to select blockchain network he wants to work with
+     *
+     * @return top part of GUI
+     */
     private Node creteTop() {
         ObservableList<String> networkOptions =
                 FXCollections.observableArrayList(
@@ -54,6 +71,12 @@ public class App extends Application {
         return hBox;
     }
 
+    /**
+     * Creates center part of GUI
+     * Allows user to save and read data from selected blockchain
+     *
+     * @return center part of GUI
+     */
     private Node createCenter() {
         TabPane tabPane = new TabPane();
 

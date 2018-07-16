@@ -14,6 +14,9 @@ public class LookUpTab extends Tab {
     private TextField addressTxt = new TextField();
     private TextArea contentTxt = new TextArea();
 
+    /**
+     * Assembles form for searching data on blockchain
+     */
     public LookUpTab() {
         this.setText("Look Up");
         this.setContent(gP);
@@ -37,6 +40,11 @@ public class LookUpTab extends Tab {
         createContentDisplay();
     }
 
+    /**
+     * Creates form for searching data on blockchain
+     *  ?? - Wallet private key ??
+     *  - Content address - Address of data to be found
+     */
     private void createForm() {
         gP.addColumn(0,
                 new Label("Wallet private key"),
@@ -55,6 +63,9 @@ public class LookUpTab extends Tab {
         gP.add(hBox, 1, 2);
     }
 
+    /**
+     * Creates appropriate visualization of found data
+     */
     private void createContentDisplay() {
         contentTxt.setEditable(false);
         gP.add(contentTxt, 1, 3);

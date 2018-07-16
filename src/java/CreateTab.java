@@ -18,6 +18,9 @@ public class CreateTab extends Tab {
 
     private TextArea infoTxt = new TextArea();
 
+    /**
+     * Assembles form for saving data into blockchain
+     */
     public CreateTab() {
         this.setText("Create");
         this.setContent(gP);
@@ -44,6 +47,14 @@ public class CreateTab extends Tab {
         createBottom(freeRowId);
     }
 
+    /**
+     * Creates form with:
+     *  - Wallet private key - Private key of the wallet which will save data into the blockchain
+     *  - Time limit - The longest period of time for saving data into the blockchain
+     *  - Max fee - Maximum fee for saving data into the blockchain
+     *
+     * @return Id of the first content free row
+     */
     private int createStaticMenu() {
         gP.addColumn(0,
                 new Label("Wallet private key"),
@@ -55,8 +66,15 @@ public class CreateTab extends Tab {
         return 3;
     }
 
+    /**
+     * Creates form for selecting a type of information to save (Information, signature)
+     * After selecting a type generates appropriate form
+     *
+     * @param rowId Id of the first content free row
+     * @return New id of the first content free row
+     */
     private int createRecordPurpose(int rowId) {
-        gP.add(new Label("Record Purpose"), 0, rowId);
+        gP.add(new Label("Recording data type"), 0, rowId);
 
         ObservableList<String> purposeOptions =
                 FXCollections.observableArrayList(
@@ -70,6 +88,11 @@ public class CreateTab extends Tab {
         return rowId + 2;
     }
 
+    /**
+     * Creates button for saving data
+     *
+     * @param rowId Id of the first content free row
+     */
     private void createBottom(int rowId) {
         Button confirmBtn = new Button("Send");
         confirmBtn.setTooltip(new Tooltip("Sends data to the selected blockchain network."));
