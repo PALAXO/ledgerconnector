@@ -54,7 +54,8 @@ public class App extends Application {
     private Node creteTop() {
         ObservableList<String> networkOptions =
                 FXCollections.observableArrayList(
-                        "Ripple"
+                        "Ripple",
+                        "Ethereum"
                 );
 
         HBox hBox = new HBox();
