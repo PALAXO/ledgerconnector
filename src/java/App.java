@@ -13,6 +13,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
+import javax.script.Invocable;
+
 public class App extends Application {
 
     /**
@@ -29,6 +31,13 @@ public class App extends Application {
 
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        Invocable accesor = JavaScriptAccesor.getJSaccesor();
+        if (accesor.equals(null)) {
+            System.out.println("chybka");
+            return;
+        }
+        //accesor.invokeMethod("hello","");
     }
 
     /**

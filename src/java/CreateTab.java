@@ -6,6 +6,8 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 
+import java.util.ArrayList;
+
 public class CreateTab extends Tab {
 
     private GridPane gP = new GridPane();
@@ -16,6 +18,11 @@ public class CreateTab extends Tab {
     private TextField maxFeeTxt = new TextField();
     private TextField shareTxt = new TextField();
 
+    private RadioButton signRB;
+    private RadioButton claimRB;
+    private RadioButton shareRB;
+
+    private Label shareLbl;
     private TextArea infoTxt = new TextArea();
 
     /**
@@ -81,9 +88,9 @@ public class CreateTab extends Tab {
         gP.add(new Label("Action"), 0, rowId);
 
         ToggleGroup actionOptions = new ToggleGroup();
-        RadioButton signRB = new RadioButton("Sign document");
-        RadioButton claimRB = new RadioButton("Claim author's work");
-        RadioButton shareRB = new RadioButton("Share document");
+        signRB = new RadioButton("Sign document");
+        claimRB = new RadioButton("Claim author's work");
+        shareRB = new RadioButton("Share document");
 
         signRB.setToggleGroup(actionOptions);
         claimRB.setToggleGroup(actionOptions);
@@ -95,7 +102,7 @@ public class CreateTab extends Tab {
         gP.add(claimRB, 1, rowId++);
         gP.add(shareRB, 1, rowId++);
 
-        Label shareLbl = new Label("Share document with");
+        shareLbl = new Label("Share document with");
         //shareLbl.setTooltip(new Tooltip("Enter public wallet address of the person with whom the document will be shared."));
         shareLbl.setVisible(false);
         shareTxt.setVisible(false);
@@ -104,28 +111,9 @@ public class CreateTab extends Tab {
         gP.add(shareTxt, 1, rowId++);
 
 
-        signRB.setOnAction(event -> {
-            shareLbl.setVisible(shareRB.isSelected());
-            shareTxt.setVisible(shareRB.isSelected());
-        });
-        claimRB.setOnAction(event -> {
-            shareLbl.setVisible(shareRB.isSelected());
-            shareTxt.setVisible(shareRB.isSelected());
-        });
-        shareRB.setOnAction(event -> {
-            shareLbl.setVisible(shareRB.isSelected());
-            shareTxt.setVisible(shareRB.isSelected());
-        });
-
-//        ObservableList<String> purposeOptions =
-//                FXCollections.observableArrayList(
-//                        "Sign document",
-//                        "Share document",
-//                        "Claim author's work"
-//                );
-//
-
-//        gP.add(infoTxt, 1, rowId + 1);
+        signRB.setOnAction(event -> shareFormVisibility());
+        claimRB.setOnAction(event -> shareFormVisibility());
+        shareRB.setOnAction(event -> shareFormVisibility());
 
         return rowId;
     }
@@ -139,6 +127,21 @@ public class CreateTab extends Tab {
         Button confirmBtn = new Button("Send");
         confirmBtn.setTooltip(new Tooltip("Sends data to the selected blockchain network."));
         confirmBtn.setOnAction(event -> {
+            ArrayList data = prepareData();
+            if (data.size() > 0) {
+
+                if (signRB.isSelected()) {
+
+                }
+
+                if (claimRB.isSelected()) {
+
+                }
+
+                if (shareRB.isSelected()) {
+
+                }
+            }
             // TODO Prepare data and send it to blockchain
         });
 
@@ -146,5 +149,25 @@ public class CreateTab extends Tab {
         hBox.setAlignment(Pos.CENTER_RIGHT);
 
         gP.add(hBox, 1, rowId);
+    }
+
+    private ArrayList<String> prepareData() {
+        ArrayList<String> data = new ArrayList();
+
+        if (!isFormOk())
+            return data;
+
+        return data;
+    }
+
+    private boolean isFormOk() {
+
+
+        return true;
+    }
+
+    private void shareFormVisibility() {
+        shareLbl.setVisible(shareRB.isSelected());
+        shareTxt.setVisible(shareRB.isSelected());
     }
 }
