@@ -1,0 +1,26 @@
+{
+  "name": "ledger_connector",
+  "version": "1.0.0",
+  "description": "",
+  "main": "CryptoConnector.js",
+  "scripts": {
+//    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
+  },
+  "keywords": [
+    "ripple",
+    "palaxo",
+    "cryptocurrency",
+    "blockchain"
+  ],
+  "author": "Petr Kraus",
+  "license": "ISC",
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "nconf": "^0.10.0",
+    "ripple-lib": "^1.1.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0"
+  }
+}
