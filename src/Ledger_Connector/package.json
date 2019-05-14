@@ -4,8 +4,8 @@
   "description": "",
   "main": "CryptoConnector.js",
   "scripts": {
-//    "test": "echo \"Error: no test specified\" && exit 1"
-    "test": "mocha"
+    "test": "mocha",
+    "lint": "eslint ./"
   },
   "keywords": [
     "ripple",
@@ -21,6 +21,7 @@
     "ripple-lib": "^1.1.0"
   },
   "devDependencies": {
-    "chai": "^4.2.0"
+    "chai": "^4.2.0",
+    "eslint": "^5.16.0"
   }
 }
