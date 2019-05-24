@@ -111,7 +111,7 @@ describe("saveData(data)", function () {
 	});
 });
 
-describe("saveData(address)", function () {
+describe("readData(address)", function () {
 	// happyday scenario
 	it("should return transaction with memos 'Bananas are greate source of K'", async function () {
 		let results = await conn.readData("BE7C0EEBD5886F4046F01E0157F1A0F89565A3727E128AF25353C22F090185B0");
