@@ -86,8 +86,8 @@ describe("writeTransaction(source, target)", function () {
 describe("readTransaction(hash)", function () {
 	// happyday scenario
 	it("should return transaction with memos 'Bananas are greate source of K'", async function () {
-		let results = await ripple.readTransaction("BE7C0EEBD5886F4046F01E0157F1A0F89565A3727E128AF25353C22F090185B0")
-		expect(results.specification.memos[0].data).to.equal("Bananas are greate source of K");
+		let results = await ripple.readTransaction("5DEE3B1B867FE945DFA1AF8BFFAF7AA8B0531822493A19C2E27A278749CD3C14");
+		expect(results.specification.memos[0].data).to.equal("Is this final form?");
 	});
 
 	// not existing transaction
@@ -98,7 +98,7 @@ describe("readTransaction(hash)", function () {
 
 	// no server specified
 	it("should return transaction with memos 'Bananas are greate source of K'", async function () {
-		let results = await connNoServer.readTransaction("BE7C0EEBD5886F4046F01E0157F1A0F89565A3727E128AF25353C22F090185B0")
+		let results = await connNoServer.readTransaction("5DEE3B1B867FE945DFA1AF8BFFAF7AA8B0531822493A19C2E27A278749CD3C14");
 		expect(results.message).to.equal("Connection failure.");
 	});
 });
@@ -114,7 +114,7 @@ describe("saveData(data)", function () {
 describe("readData(address)", function () {
 	// happyday scenario
 	it("should return transaction with memos 'Bananas are greate source of K'", async function () {
-		let results = await conn.readData("BE7C0EEBD5886F4046F01E0157F1A0F89565A3727E128AF25353C22F090185B0");
-		expect(results.specification.memos[0].data).to.equal("Bananas are greate source of K");
+		let results = await conn.readData("5DEE3B1B867FE945DFA1AF8BFFAF7AA8B0531822493A19C2E27A278749CD3C14");
+		expect(results.specification.memos[0].data).to.equal("Is this final form?");
 	});
 });
