@@ -2,10 +2,10 @@
   "name": "ledger_connector",
   "version": "1.0.0",
   "description": "",
-  "main": "CryptoConnector.js",
+  "main": "lib/CryptoConnector.js",
   "scripts": {
-    "test": "mocha",
-    "lint": "eslint ./"
+    "test": "mocha --timeout 30000",
+    "lint": "eslint lib"
   },
   "keywords": [
     "ripple",

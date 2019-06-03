@@ -1,6 +1,6 @@
 const expect = require("chai").expect;
-const rippleConn = require("../Ledger_Connector/RippleConnector");
-const cryptoConn = require("../Ledger_Connector/CryptoConnector");
+const rippleConn = require("../lib/RippleConnector");
+const cryptoConn = require("../lib/CryptoConnector");
 const ripple = new rippleConn("wss://s.altnet.rippletest.net:51233");
 const connNoServer = new rippleConn("-");
 const conn = new cryptoConn();
@@ -85,7 +85,7 @@ describe("writeTransaction(source, target)", function () {
 
 describe("readTransaction(hash)", function () {
 	// happyday scenario
-	it("should return transaction with memos 'Bananas are greate source of K'", async function () {
+	it("should return transaction with memos 'Is this final form?'", async function () {
 		let results = await ripple.readTransaction("5DEE3B1B867FE945DFA1AF8BFFAF7AA8B0531822493A19C2E27A278749CD3C14");
 		expect(results.specification.memos[0].data).to.equal("Is this final form?");
 	});
@@ -97,7 +97,7 @@ describe("readTransaction(hash)", function () {
 	});
 
 	// no server specified
-	it("should return transaction with memos 'Bananas are greate source of K'", async function () {
+	it("should return transaction with memos 'Is this final form?'", async function () {
 		let results = await connNoServer.readTransaction("5DEE3B1B867FE945DFA1AF8BFFAF7AA8B0531822493A19C2E27A278749CD3C14");
 		expect(results.message).to.equal("Connection failure.");
 	});
@@ -113,7 +113,7 @@ describe("saveData(data)", function () {
 
 describe("readData(address)", function () {
 	// happyday scenario
-	it("should return transaction with memos 'Bananas are greate source of K'", async function () {
+	it("should return transaction with memos 'Is this final form?'", async function () {
 		let results = await conn.readData("5DEE3B1B867FE945DFA1AF8BFFAF7AA8B0531822493A19C2E27A278749CD3C14");
 		expect(results.specification.memos[0].data).to.equal("Is this final form?");
 	});
