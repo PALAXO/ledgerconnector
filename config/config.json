@@ -1,7 +1,4 @@
 {
-  "App": {
-    "connectorImplementation": "Ripple"
-  },
   "RippleConnection": {
     "api": {
       "server": "wss://s.altnet.rippletest.net:51233"
