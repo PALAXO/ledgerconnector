@@ -1,0 +1,20 @@
+{
+  "test": {
+    "settings": {
+      "timeout": 20000
+    },
+    "connectors": {
+      "Ripple": {
+        "server": "wss://s.altnet.rippletest.net:51233",
+        "source": {
+          "address": "rH1NguqGbHCZmqGUYuYZcdW4YnUFLeL1u7",
+          "secret": "shxeETAszRwWAvpQT583XfRd294ea"
+        },
+        "target": {
+          "address": "rDqihEZXqhFDapfC8VUvqFTcYQgwjtjkwL",
+          "secret": "sn5fGPhPt5mc6dSsyPob1t4auKCA1"
+        }
+      }
+    }
+  }
+}

@@ -1,4 +1,8 @@
-# Created by .ignore support plugin (hsz.mobi)
-.gitignore
+# IntelliJ
 .idea/
-Circularo-blockchain.iml
+
+# External libraries
+node_modules/
+
+# Common
+temp/

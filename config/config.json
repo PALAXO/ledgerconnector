@@ -1,12 +1,7 @@
 {
-  "App": {
-    "connectorImplementation": "Ripple"
-  },
-  "RippleConnection": {
-    "api": {
-      "server": "wss://s.altnet.rippletest.net:51233"
-    },
-    "addresses": {
+  "connectors": {
+    "Ripple": {
+      "server": "wss://s.altnet.rippletest.net:51233",
       "source": {
         "address": "rH1NguqGbHCZmqGUYuYZcdW4YnUFLeL1u7",
         "secret": "shxeETAszRwWAvpQT583XfRd294ea"
