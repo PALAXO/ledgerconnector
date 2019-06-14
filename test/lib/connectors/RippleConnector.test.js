@@ -21,29 +21,25 @@ describe(`Ripple connector`, function() {
             _ripple = new _rippleConnector(rippleConfig.server, rippleConfig.source, rippleConfig.target);
         });
 
-        describe(`writeTransaction()`, function () {
-            it(`returns transaction hash`, async function () {
+        describe(`writeTransaction()`, () => {
+            it(`writes transaction`, async () => {
                 const result = await _ripple.writeTransaction(`Chai test data`);
                 expect(result).to.be.a(`string`);
                 expect(result.length).to.equal(64);
             });
         });
 
-        describe(`readTransaction(hash)`, function () {
-            it(`reads transaction memo'`, async function () {
-                //Note - might be deleted in the future
-                const result = await _ripple.readTransaction(`5DEE3B1B867FE945DFA1AF8BFFAF7AA8B0531822493A19C2E27A278749CD3C14`);
-                expect(result).to.equal(`Is this final form?`);
-            });
+        describe(`readTransaction(hash)`, () => {
+            //Test server resets on a regular basis -> read function is tested properly along with write in functionality tests
 
-            it(`can't find non-existing transaction`, async function () {
+            it(`can't find non-existing transaction`, async () => {
                 const unexisting = `1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF`;
                 await expect(_ripple.readTransaction(unexisting)).to.be.eventually.rejectedWith(`Transaction not found`);
             });
         });
 
-        describe(`functionality test`, function () {
-            it(`writes and reads data`, async function () {
+        describe(`functionality tests`, () => {
+            it(`writes and reads data`, async () => {
                 const myString = `Proletáři všech zemí, vyližte si prdel! #${Math.random()}`;
                 const hash = await _ripple.writeTransaction(myString);
                 expect(hash).to.be.a(`string`);
@@ -59,14 +55,14 @@ describe(`Ripple connector`, function() {
         });
     });
 
-    describe(`createTransactionObject()`, function () {
+    describe(`createTransactionObject()`, () => {
         let _createTransactionObject;
 
         beforeEach(() => {
             _createTransactionObject = _rippleConnector.__get__(`createTransactionObject`);
         });
 
-        it(`creates transaction object`, function () {
+        it(`creates transaction object`, () => {
             const result = _createTransactionObject(`zdroj`, `cil`, `tajemstvi`);
             expect(result.source.address).to.equal(`zdroj`);
             expect(result.destination.address).to.equal(`cil`);
@@ -74,37 +70,37 @@ describe(`Ripple connector`, function() {
         });
     });
 
-    describe(`checkUri()`, function () {
+    describe(`checkUri()`, () => {
         let _checkUri;
 
         beforeEach(() => {
             _checkUri = _rippleConnector.__get__(`checkUri`);
         });
 
-        it(`checks correct URI`, function () {
+        it(`checks correct URI`, () => {
             const result = _checkUri(`wss://muj.rippled.server`);
             expect(result).to.be.true;
         });
 
-        it(`checks incorrect URI`, function () {
+        it(`checks incorrect URI`, () => {
             const result = _checkUri(`muj.rippled.server`);
             expect(result).to.be.false;
         });
 
-        it(`checks no input`, function () {
+        it(`checks no input`, () => {
             const result = _checkUri();
             expect(result).to.be.false;
         });
     });
 
-    describe(`checkAccount()`, function () {
+    describe(`checkAccount()`, () => {
         let _checkAccount;
 
         beforeEach(() => {
             _checkAccount = _rippleConnector.__get__(`checkAccount`);
         });
 
-        it(`checks correct account`, function () {
+        it(`checks correct account`, () => {
             const param = {
                 address: `address`,
                 secret: `secret`
@@ -114,7 +110,7 @@ describe(`Ripple connector`, function() {
             expect(result).to.be.true;
         });
 
-        it(`checks incorrect account`, function () {
+        it(`checks incorrect account`, () => {
             const param = {
                 address: `velkÝ`,
                 secret: `ŠpatnÝ`
@@ -124,7 +120,7 @@ describe(`Ripple connector`, function() {
             expect(result).to.be.false;
         });
 
-        it(`checks account without secret`, function () {
+        it(`checks account without secret`, () => {
             const param = {
                 address: `address`
             };
@@ -133,7 +129,7 @@ describe(`Ripple connector`, function() {
             expect(result).to.be.false;
         });
 
-        it(`checks account without address`, function () {
+        it(`checks account without address`, () => {
             const param = {
                 secret: `secret`
             };
@@ -142,12 +138,12 @@ describe(`Ripple connector`, function() {
             expect(result).to.be.false;
         });
 
-        it(`checks empty account`, function () {
+        it(`checks empty account`, () => {
             const result = _checkAccount({});
             expect(result).to.be.false;
         });
 
-        it(`checks no input`, function () {
+        it(`checks no input`, () => {
             const result = _checkAccount();
             expect(result).to.be.false;
         });

@@ -20,12 +20,12 @@ Then use like:
 ```
 const rippleConnector = new CryptoConnector('Ripple');
 
-const myString = 'My string';
-const hash = await rippleConnector.saveData(myString);
+const originalString = 'My string';
+const hash = await rippleConnector.saveData(originalString);
 
-const originalString = await rippleConnector.readData(hash)
+const acquiredString = await rippleConnector.readData(hash)
 
-originalString === myString
+originalString === acquiredString
 ```
 
 _Available implementations:_ Ripple

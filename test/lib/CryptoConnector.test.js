@@ -1,5 +1,6 @@
 `use strict`;
 
+
 require(`../bootstrapTests`);
 const rewire = require(`rewire`);
 
@@ -33,16 +34,16 @@ describe(`CryptoConnector lib`, function() {
         });
     });
 
-    describe(`constructor()`, function () {
-        it(`can't create instance without specified connector`, async function () {
+    describe(`constructor()`, () => {
+        it(`can't create instance without specified connector`, async () => {
             expect(() => new _cryptoConnector()).to.throw(`Connector not specified`);
         });
 
-        it(`can't create instance with unknown connector`, async function () {
+        it(`can't create instance with unknown connector`, async () => {
             expect(() => new _cryptoConnector(`unknown`)).to.throw(`Unknown connector`);
         });
 
-        it(`creates instance`, async function () {
+        it(`creates instance`, async () => {
             const rippleConnector = new _cryptoConnector(`Ripple`);
             expect(rippleConnector).to.be.instanceOf(_cryptoConnector);
             expect(_mockedRipple.server).to.be.a(`string`);
@@ -51,14 +52,14 @@ describe(`CryptoConnector lib`, function() {
         });
     });
 
-    describe(`saveData()`, function () {
+    describe(`saveData()`, () => {
         let _rippleConnector;
 
         beforeEach(() => {
             _rippleConnector = new _cryptoConnector(`Ripple`);
         });
 
-        it(`calls write function`, async function () {
+        it(`calls write function`, async () => {
             const myString = `My string`;
             const result = await _rippleConnector.saveData(myString);
 
@@ -67,14 +68,14 @@ describe(`CryptoConnector lib`, function() {
         });
     });
 
-    describe(`readData()`, function () {
+    describe(`readData()`, () => {
         let _rippleConnector;
 
         beforeEach(() => {
             _rippleConnector = new _cryptoConnector(`Ripple`);
         });
 
-        it(`calls read function`, async function () {
+        it(`calls read function`, async () => {
             const myHash = `My string`;
             const result = await _rippleConnector.readData(myHash);
 
