@@ -4,7 +4,7 @@
 const chai = require(`chai`);
 const chaiAsPromised = require(`chai-as-promised`);
 const path = require(`path`);
-const nconf = require(`../lib/config`);
+const nconf = require(`nconf`);
 
 /*
  * Chai bootstrap
@@ -15,8 +15,9 @@ chai.should();
 /*
  * Configuration bootstrap
  */
+nconf.env();
+nconf.argv();
 nconf.file(`test`, path.join(__dirname, `test_config.json`));
-nconf.set(`connectors`, nconf.get(`test:connectors`));
 
 /*
  * Globals

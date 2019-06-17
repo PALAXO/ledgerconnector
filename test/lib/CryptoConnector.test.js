@@ -4,22 +4,21 @@
 require(`../bootstrapTests`);
 const rewire = require(`rewire`);
 
-describe(`CryptoConnector lib`, function() {
+describe(`BlockchainConnector lib`, function() {
     this.timeout(testTimeout);
 
-    let _cryptoConnector;
+    let _blockchainConnector;
     let _mockedRipple;
 
     beforeEach(() => {
-        _cryptoConnector = rewire(`../../lib/CryptoConnector`);
+        _blockchainConnector = rewire(`../../lib/BlockchainConnector`);
 
         //Ripple-like
         _mockedRipple = {};
-        _cryptoConnector.__set__(`RippleConnector`, class Ripple {
-            constructor(server, source, target) {
-                _mockedRipple.server = server;
-                _mockedRipple.source = source;
-                _mockedRipple.target = target;
+        _blockchainConnector.__set__(`RippleConnector`, class Ripple {
+            constructor(options, logger) {
+                _mockedRipple.options = options;
+                _mockedRipple.logger = logger;
             }
 
             async writeTransaction(data) {
@@ -36,19 +35,18 @@ describe(`CryptoConnector lib`, function() {
 
     describe(`constructor()`, () => {
         it(`can't create instance without specified connector`, async () => {
-            expect(() => new _cryptoConnector()).to.throw(`Connector not specified`);
+            expect(() => new _blockchainConnector()).to.throw(`Connector not specified`);
         });
 
         it(`can't create instance with unknown connector`, async () => {
-            expect(() => new _cryptoConnector(`unknown`)).to.throw(`Unknown connector`);
+            expect(() => new _blockchainConnector(`unknown`)).to.throw(`Unknown connector`);
         });
 
         it(`creates instance`, async () => {
-            const rippleConnector = new _cryptoConnector(`Ripple`);
-            expect(rippleConnector).to.be.instanceOf(_cryptoConnector);
-            expect(_mockedRipple.server).to.be.a(`string`);
-            expect(_mockedRipple.source).to.be.an(`object`);
-            expect(_mockedRipple.target).to.be.an(`object`);
+            const rippleConnector = new _blockchainConnector(`Ripple`, `options`, `logger`);
+            expect(rippleConnector).to.be.instanceOf(_blockchainConnector);
+            expect(_mockedRipple.options).to.equal(`options`);
+            expect(_mockedRipple.logger).to.equal(`logger`);
         });
     });
 
@@ -56,7 +54,7 @@ describe(`CryptoConnector lib`, function() {
         let _rippleConnector;
 
         beforeEach(() => {
-            _rippleConnector = new _cryptoConnector(`Ripple`);
+            _rippleConnector = new _blockchainConnector(`Ripple`);
         });
 
         it(`calls write function`, async () => {
@@ -72,7 +70,7 @@ describe(`CryptoConnector lib`, function() {
         let _rippleConnector;
 
         beforeEach(() => {
-            _rippleConnector = new _cryptoConnector(`Ripple`);
+            _rippleConnector = new _blockchainConnector(`Ripple`);
         });
 
         it(`calls read function`, async () => {

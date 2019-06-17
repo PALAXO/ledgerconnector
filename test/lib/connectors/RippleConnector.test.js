@@ -17,8 +17,8 @@ describe(`Ripple connector`, function() {
         let _ripple;
 
         beforeEach(() => {
-            const rippleConfig = bootstrapTests.nconf.get(`connectors:Ripple`);
-            _ripple = new _rippleConnector(rippleConfig.server, rippleConfig.source, rippleConfig.target);
+            const rippleConfig = bootstrapTests.nconf.get(`test:connectors:Ripple`);
+            _ripple = new _rippleConnector(rippleConfig);
         });
 
         describe(`writeTransaction()`, () => {
@@ -40,7 +40,7 @@ describe(`Ripple connector`, function() {
 
         describe(`functionality tests`, () => {
             it(`writes and reads data`, async () => {
-                const myString = `Proletáři všech zemí, vyližte si prdel! #${Math.random()}`;
+                const myString = `My normal string... #${Math.random()}`;
                 const hash = await _ripple.writeTransaction(myString);
                 expect(hash).to.be.a(`string`);
 
@@ -63,9 +63,11 @@ describe(`Ripple connector`, function() {
         });
 
         it(`creates transaction object`, () => {
-            const result = _createTransactionObject(`zdroj`, `cil`, `tajemstvi`);
+            const result = _createTransactionObject(`zdroj`, `cil`, 123, `tajemstvi`);
             expect(result.source.address).to.equal(`zdroj`);
+            expect(result.source.maxAmount.value).to.equal(`123`);
             expect(result.destination.address).to.equal(`cil`);
+            expect(result.destination.amount.value).to.equal(`123`);
             expect(result.memos[0].data).to.equal(`tajemstvi`);
         });
     });

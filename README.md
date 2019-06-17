@@ -2,6 +2,7 @@
 
 Node.js library for saving and reading data from blockchain / ledger networks.
 
+
 ## Installation
    
 Use the package manager [npm](https://www.npmjs.com/get-npm): 
@@ -13,19 +14,37 @@ npm i
 
 ## Usage
 
-Configure connector parameters in `config/config.json`.
+_Available implementations:_ Ripple
 
-Then use like: 
+Use like: 
 
 ```
-const rippleConnector = new CryptoConnector('Ripple');
+const rippleConnector = new BlockchainConnector('Ripple', options, logger);
 
 const originalString = 'My string';
 const hash = await rippleConnector.saveData(originalString);
 
+//wait some time till it gets written to ledger
+
 const acquiredString = await rippleConnector.readData(hash)
+
 
 originalString === acquiredString
 ```
 
-_Available implementations:_ Ripple
+
+#### Options:
+
+##### Ripple: 
+
+```
+source
+  address {string}
+  secret {string}
+target
+  address {string}
+  secret {string}
+maxFeeXRP {number} - Maximum fee in XRP, optional
+```
+
+Note: Accounts are interchangeable, source one is selected automatically

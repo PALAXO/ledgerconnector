@@ -13,7 +13,8 @@
         "target": {
           "address": "rDqihEZXqhFDapfC8VUvqFTcYQgwjtjkwL",
           "secret": "sn5fGPhPt5mc6dSsyPob1t4auKCA1"
-        }
+        },
+        "maxFeeXRP": 0.001
       }
     }
   }

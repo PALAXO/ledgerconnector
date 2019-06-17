@@ -1,15 +1,14 @@
 {
-  "name": "Circularo-blockchain",
+  "name": "BlockchainConnector",
   "version": "1.0.0",
   "description": "",
-  "main": "lib/CryptoConnector.js",
+  "main": "./lib/BlockchainConnector.js",
   "scripts": {
     "test": "mocha --recursive \"test/**/*.test.js\" --exit",
-    "lint": "eslint lib"
+    "lint": "eslint lib/**/*.js"
   },
   "keywords": [
     "ripple",
-    "palaxo",
     "cryptocurrency",
     "blockchain"
   ],
