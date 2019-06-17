@@ -1,6 +1,6 @@
 # Circularo-blockchain
 
-Node.js library for saving and reading data from blockchain / ledger networks.
+Node.js library for saving and reading data from ledger networks.
 
 
 ## Installation
@@ -19,7 +19,7 @@ _Available implementations:_ Ripple
 Use like: 
 
 ```
-const rippleConnector = new BlockchainConnector('Ripple', options, logger);
+const rippleConnector = new LedgerConnector('Ripple', options, logger);
 
 const originalString = 'My string';
 const hash = await rippleConnector.saveData(originalString);

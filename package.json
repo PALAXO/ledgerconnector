@@ -1,8 +1,8 @@
 {
-  "name": "BlockchainConnector",
+  "name": "LedgerConnector",
   "version": "1.0.0",
   "description": "",
-  "main": "./lib/BlockchainConnector.js",
+  "main": "./lib/LedgerConnector.js",
   "scripts": {
     "test": "mocha --recursive \"test/**/*.test.js\" --exit",
     "lint": "eslint lib/**/*.js"
@@ -10,7 +10,8 @@
   "keywords": [
     "ripple",
     "cryptocurrency",
-    "blockchain"
+    "blockchain",
+    "ledger"
   ],
   "author": "Petr Kraus",
   "license": "ISC",

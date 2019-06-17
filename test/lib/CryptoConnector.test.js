@@ -4,18 +4,18 @@
 require(`../bootstrapTests`);
 const rewire = require(`rewire`);
 
-describe(`BlockchainConnector lib`, function() {
+describe(`LedgerConnector lib`, function() {
     this.timeout(testTimeout);
 
-    let _blockchainConnector;
+    let _ledgerConnector;
     let _mockedRipple;
 
     beforeEach(() => {
-        _blockchainConnector = rewire(`../../lib/BlockchainConnector`);
+        _ledgerConnector = rewire(`../../lib/LedgerConnector`);
 
         //Ripple-like
         _mockedRipple = {};
-        _blockchainConnector.__set__(`RippleConnector`, class Ripple {
+        _ledgerConnector.__set__(`RippleConnector`, class Ripple {
             constructor(options, logger) {
                 _mockedRipple.options = options;
                 _mockedRipple.logger = logger;
@@ -35,16 +35,16 @@ describe(`BlockchainConnector lib`, function() {
 
     describe(`constructor()`, () => {
         it(`can't create instance without specified connector`, async () => {
-            expect(() => new _blockchainConnector()).to.throw(`Connector not specified`);
+            expect(() => new _ledgerConnector()).to.throw(`Connector not specified`);
         });
 
         it(`can't create instance with unknown connector`, async () => {
-            expect(() => new _blockchainConnector(`unknown`)).to.throw(`Unknown connector`);
+            expect(() => new _ledgerConnector(`unknown`)).to.throw(`Unknown connector`);
         });
 
         it(`creates instance`, async () => {
-            const rippleConnector = new _blockchainConnector(`Ripple`, `options`, `logger`);
-            expect(rippleConnector).to.be.instanceOf(_blockchainConnector);
+            const rippleConnector = new _ledgerConnector(`Ripple`, `options`, `logger`);
+            expect(rippleConnector).to.be.instanceOf(_ledgerConnector);
             expect(_mockedRipple.options).to.equal(`options`);
             expect(_mockedRipple.logger).to.equal(`logger`);
         });
@@ -54,7 +54,7 @@ describe(`BlockchainConnector lib`, function() {
         let _rippleConnector;
 
         beforeEach(() => {
-            _rippleConnector = new _blockchainConnector(`Ripple`);
+            _rippleConnector = new _ledgerConnector(`Ripple`);
         });
 
         it(`calls write function`, async () => {
@@ -70,7 +70,7 @@ describe(`BlockchainConnector lib`, function() {
         let _rippleConnector;
 
         beforeEach(() => {
-            _rippleConnector = new _blockchainConnector(`Ripple`);
+            _rippleConnector = new _ledgerConnector(`Ripple`);
         });
 
         it(`calls read function`, async () => {
