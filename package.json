@@ -1,11 +1,11 @@
 {
   "name": "LedgerConnector",
   "version": "1.0.0",
-  "description": "",
+  "description": "Javascript ledger connector",
   "main": "./lib/LedgerConnector.js",
   "scripts": {
     "test": "mocha --recursive \"test/**/*.test.js\" --exit",
-    "lint": "eslint lib/**/*.js"
+    "lint": "eslint **/*.js"
   },
   "keywords": [
     "ripple",
@@ -13,7 +13,6 @@
     "blockchain",
     "ledger"
   ],
-  "author": "Petr Kraus",
   "license": "ISC",
   "dependencies": {
     "bunyan": "1.8.12",
