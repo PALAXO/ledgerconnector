@@ -1,4 +1,4 @@
-# Circularo-blockchain
+# LedgerConnector
 
 Node.js library for saving and reading data from ledger networks.
 
