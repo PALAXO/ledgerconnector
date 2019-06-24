@@ -16,9 +16,8 @@ describe(`LedgerConnector lib`, function() {
         //Ripple-like
         _mockedRipple = {};
         _ledgerConnector.__set__(`RippleConnector`, class Ripple {
-            constructor(options, logger) {
+            constructor(options) {
                 _mockedRipple.options = options;
-                _mockedRipple.logger = logger;
             }
 
             async writeTransaction(data) {
@@ -43,10 +42,9 @@ describe(`LedgerConnector lib`, function() {
         });
 
         it(`creates instance`, async () => {
-            const rippleConnector = new _ledgerConnector(`Ripple`, `options`, `logger`);
+            const rippleConnector = new _ledgerConnector(`Ripple`, `options`);
             expect(rippleConnector).to.be.instanceOf(_ledgerConnector);
             expect(_mockedRipple.options).to.equal(`options`);
-            expect(_mockedRipple.logger).to.equal(`logger`);
         });
     });
 

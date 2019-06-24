@@ -19,7 +19,7 @@ _Available implementations:_ Ripple
 Use like: 
 
 ```
-const rippleConnector = new LedgerConnector('Ripple', options, logger);
+const rippleConnector = new LedgerConnector('Ripple', options);
 
 const originalString = 'My string';
 const hash = await rippleConnector.saveData(originalString);
