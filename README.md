@@ -45,6 +45,5 @@ target
   address {string}
   secret {string}
 maxFeeXRP {number} - Maximum fee in XRP, optional
+allowAccountSwap {boolean} - Swap accounts by actual XRP balance
 ```
-
-Note: Accounts are interchangeable, source one is selected automatically
