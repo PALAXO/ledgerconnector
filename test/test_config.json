@@ -16,6 +16,35 @@
         },
         "maxFeeXRP": 0.001,
         "allowAccountSwap": true
+      },
+      "Ethereum" : {
+        "node": "http://127.0.0.1:7545",
+        "contract": "0xc05d562194428f36E7f879FC35c33E269304aeeb",
+        "account": {
+          "keystore": {
+            "version": 3,
+            "id": "e7d58875-73ca-4090-bd64-cdf96c23bc9b",
+            "address": "8f912751b1c1f38a820d4d87e74e6e86a2a4ed0e",
+            "crypto": {
+              "ciphertext": "6a545b617ce2f19bd5258db3feb042665d71283687bcd6210910d3de9de786ba",
+              "cipherparams": {
+                "iv": "080354cf21c600826302569f859e9834"
+              },
+              "cipher": "aes-128-ctr",
+              "kdf": "scrypt",
+              "kdfparams": {
+                "dklen": 32,
+                "salt": "f6923ca6625dd852ee39fc59329ae45dc6323b78556c586d5708674ee8392641",
+                "n": 8192,
+                "r": 8,
+                "p": 1
+              },
+              "mac": "d7fc872d8c63308f190ce46341fb12f5f72320c7f9284d65a6191d4dd584fdcf"
+            }
+          },
+          "password": "heslo"
+        },
+        "gasLimit": 200000
       }
     }
   }
