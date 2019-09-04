@@ -18,31 +18,29 @@
         "allowAccountSwap": true
       },
       "Ethereum" : {
-        "node": "http://127.0.0.1:7545",
-        "contract": "0xc05d562194428f36E7f879FC35c33E269304aeeb",
+        "node": "https://rinkeby.infura.io/v3/53e35f5ded67491cacd90da80ddba998",
+        "contract": "0xAb3108d9E0435F6EEc73CFFBF521Bc0701F4cF11",
         "account": {
           "keystore": {
             "version": 3,
-            "id": "e7d58875-73ca-4090-bd64-cdf96c23bc9b",
-            "address": "8f912751b1c1f38a820d4d87e74e6e86a2a4ed0e",
-            "crypto": {
-              "ciphertext": "6a545b617ce2f19bd5258db3feb042665d71283687bcd6210910d3de9de786ba",
-              "cipherparams": {
-                "iv": "080354cf21c600826302569f859e9834"
-              },
-              "cipher": "aes-128-ctr",
-              "kdf": "scrypt",
-              "kdfparams": {
-                "dklen": 32,
-                "salt": "f6923ca6625dd852ee39fc59329ae45dc6323b78556c586d5708674ee8392641",
-                "n": 8192,
-                "r": 8,
-                "p": 1
-              },
-              "mac": "d7fc872d8c63308f190ce46341fb12f5f72320c7f9284d65a6191d4dd584fdcf"
-            }
+            "id": "99082c4b-a7c2-48a1-bb6d-a858166215c3",
+            "address": "d44b37abe17e15d3c31fc5471be28aa976caa302",
+              "crypto": {
+                "cipher": "aes-128-ctr",
+                "ciphertext": "d26568f3e0c061b0f181e61ae159c006ec9cbde018b712e30ae90a59de123e90",
+                "cipherparams": { "iv": "fdae138046e24f01b18b2c4fc0bebddb" },
+                "kdf": "scrypt",
+                "kdfparams": {
+                  "dklen": 32,
+                  "n": 262144,
+                  "p": 1,
+                  "r": 8,
+                  "salt": "3becb585afd32e830fa0be5073e56d19da46316e41e7f6d4950f4e27baab2ffb"
+                },
+                "mac": "34164ca2e029795e0f00c3e6da9f3d5ea0c6bc81e5105b422826b482a9a2a833"
+              }
           },
-          "password": "heslo"
+          "password": "ZmQzN2JjNmRmNGJlMmZkNTE3NmJkYWYz"
         },
         "gasLimit": 200000
       }
