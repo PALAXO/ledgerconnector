@@ -47,3 +47,14 @@ target
 maxFeeXRP {number} - Maximum fee in XRP, optional
 allowAccountSwap {boolean} - Swap accounts by actual XRP balance
 ```
+
+##### Ethereum: 
+
+```
+node {string} - Ethereum node address
+contract {string} - 0x prefixed address of smart contract
+account {Object} - optional but needed for sending transactions
+  keystore {Object} - v3 keystore object
+  password {string} - password to keystore
+gasLimit {number} - Maximum gas to be used, optional
+```
