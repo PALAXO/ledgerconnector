@@ -9,6 +9,7 @@
   },
   "keywords": [
     "ripple",
+    "ethereum",
     "cryptocurrency",
     "blockchain",
     "ledger"
@@ -18,7 +19,9 @@
     "bunyan": "1.8.12",
     "lodash": "4.17.11",
     "nconf": "0.10.0",
-    "ripple-lib": "1.2.4"
+    "ripple-lib": "1.2.4",
+    "web3": "1.2.1",
+    "ethereumjs-tx": "2.1.1"
   },
   "devDependencies": {
     "chai": "4.2.0",
