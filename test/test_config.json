@@ -7,12 +7,12 @@
       "Ripple": {
         "server": "wss://s.altnet.rippletest.net:51233",
         "source": {
-          "address": "rLMw4YLADJ6CrqhnsNz5gN9WL81WMEJKwR",
-          "secret": "spFxLP3MRxWGseRGoiVWoMfNHgVhX"
+          "address": "rE7AkkMk2YJr3Hgf8fqtQGHRR6AhsQbnYu",
+          "secret": "sa9eDqxguB8twLKMceWYHnDZMJSpA"
         },
         "target": {
-          "address": "rPWf9KXVNMNiQsJTLtUtdb1oVyo9E3fAKj",
-          "secret": "ssSsvatnRfGjwUWe7bxFLvvRVZzKt"
+          "address": "rPTDaw563mkxZq8JArWwsHeRaGRdcMPccr",
+          "secret": "snoGpCENGaWs7YLWg59kcVUKeGzkk"
         },
         "maxFeeXRP": 0.001,
         "allowAccountSwap": true
