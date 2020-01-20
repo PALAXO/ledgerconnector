@@ -1,6 +1,6 @@
 {
   "name": "ledgerconnector",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Javascript ledger connector",
   "main": "./lib/LedgerConnector.js",
   "scripts": {
