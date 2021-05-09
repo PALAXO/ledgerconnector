@@ -17,7 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "bunyan": "1.8.12",
-    "lodash": "4.17.15",
+    "lodash": "4.17.21",
     "nconf": "0.10.0",
     "ripple-lib": "1.6.2",
     "web3": "1.2.5-rc.0",
